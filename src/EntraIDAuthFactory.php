@@ -6,13 +6,13 @@ use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\UriFactoryInterface;
 
-class EntraIDAuthFactory {
+readonly class EntraIDAuthFactory {
 	public function __construct(
-		private readonly EntraIdEndpoints $endpoints,
-		private readonly RequestFactoryInterface $requestFactory,
-		private readonly UriFactoryInterface $uriFactory,
-		private readonly ClientInterface $client,
-		private readonly string $landingPageUri
+		private EntraIdEndpoints $endpoints,
+		private RequestFactoryInterface $requestFactory,
+		private UriFactoryInterface $uriFactory,
+		private ClientInterface $client,
+		private string $landingPageUri
 	) {}
 	
 	public function createAuthClient(string $clientId, string $clientSecret): EntryIDAuthClient {
