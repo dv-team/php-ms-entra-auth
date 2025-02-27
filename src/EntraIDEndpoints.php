@@ -2,10 +2,10 @@
 
 namespace DvTeam\Microsoft\EntraID;
 
-readonly class EntraIDEndpoints {
+class EntraIDEndpoints {
 	public function __construct(
-		public string $authorizationEndpoint,
-		public string $tokenEndpoint,
-		public string $graphMeEndpoint = 'https://graph.microsoft.com/v1.0/me',
+		public readonly string $authorizationEndpoint,
+		public readonly string $tokenEndpoint,
+		public readonly string $graphMeEndpoint = 'https://graph.microsoft.com/v1.0/me',
 	) {}
 }

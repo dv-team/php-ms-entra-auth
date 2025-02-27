@@ -12,15 +12,15 @@ use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\UriFactoryInterface;
 
-readonly class EntryIDAuthClient {
+class EntryIDAuthClient {
 	public function __construct(
-		private EntraIdEndpoints $endpoints,
-		private RequestFactoryInterface $requestFactory,
-		private UriFactoryInterface $uriFactory,
-		private ClientInterface $client,
-		private string $clientId,
-		private string $clientSecret,
-		private string $landingPageUri
+		private readonly EntraIdEndpoints $endpoints,
+		private readonly RequestFactoryInterface $requestFactory,
+		private readonly UriFactoryInterface $uriFactory,
+		private readonly ClientInterface $client,
+		private readonly string $clientId,
+		private readonly string $clientSecret,
+		private readonly string $landingPageUri
 	) {}
 	
 	public function getRedirectionUrl(): string {

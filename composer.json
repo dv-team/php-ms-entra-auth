@@ -2,7 +2,7 @@
     "name": "dv-team/ms-entra-auth",
     "description": "A entra id auth helper",
     "require": {
-        "php": ">= 8.2",
+        "php": ">= 8.1",
         "psr/http-client": "^1.0",
         "psr/http-factory": "^1.1"
     },
