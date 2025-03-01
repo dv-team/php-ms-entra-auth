@@ -15,7 +15,7 @@ class EntraIDAuthFactory {
 		private readonly string $landingPageUri
 	) {}
 	
-	public function createAuthClient(string $clientId, string $clientSecret): EntryIDAuthClient {
+		public function createAuthClient(string $clientId, string $clientSecret): EntryIDAuthClient {
 		return new EntryIDAuthClient(
 			endpoints: $this->endpoints,
 			requestFactory: $this->requestFactory,

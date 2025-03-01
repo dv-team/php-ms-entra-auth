@@ -14,7 +14,7 @@ use Psr\Http\Message\UriFactoryInterface;
 
 class EntryIDAuthClient {
 	public function __construct(
-		private readonly EntraIdEndpoints $endpoints,
+		private readonly EntraIDEndpoints $endpoints,
 		private readonly RequestFactoryInterface $requestFactory,
 		private readonly UriFactoryInterface $uriFactory,
 		private readonly ClientInterface $client,
