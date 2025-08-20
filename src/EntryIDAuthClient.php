@@ -23,7 +23,7 @@ class EntryIDAuthClient {
 		private readonly string $landingPageUri
 	) {}
 	
-	public function getRedirectionUrl(): string {
+	public function getRedirectionUrl(bool $requireUserSelection = false): string {
 		$authEndpointUri = $this->uriFactory->createUri($this->endpoints->authorizationEndpoint);
 		$query = $authEndpointUri->getQuery();
 		$query = self::addQueryParam($query, 'client_id', $this->clientId);
@@ -31,6 +31,11 @@ class EntryIDAuthClient {
 		$query = self::addQueryParam($query, 'redirect_uri', $this->landingPageUri);
 		$query = self::addQueryParam($query, 'scope', 'openid profile User.Read offline_access');
 		$query = self::addQueryParam($query, 'response_mode', 'query');
+
+		if($requireUserSelection) {
+			$query = self::addQueryParam($query, 'prompt', 'select_account');
+		}
+
 		$authEndpointUri = $authEndpointUri->withQuery($query);
 		return (string) $authEndpointUri;
 	}
